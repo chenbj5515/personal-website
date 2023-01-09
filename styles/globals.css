@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html,
+body,
+#__next {
+  height: 100%;
+  background: black;
+}
+
+/* @font-face {
+    font-family: dancing;
+    src: url('./assets/fonts/dancing.ttf');
+}
+
+@font-face {
+    font-family: marck;
+    src: url('./assets/fonts/marck.ttf');
+} */
+
+@font-face {
+  font-family: NewYork;
+  src: url("../public/assets/fonts/newyork.otf");
+}
+
+@layer utilities {
+    .font-NewYork {
+        font-family: NewYork;
+    }
+
+    .center {
+        width: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
