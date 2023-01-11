@@ -17,6 +17,7 @@ export default function Home() {
             x: 10
         },
     ]);
+    const [theme, setTheme] = React.useState("dark");
 
     function handleHoverStart(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
         const itemID = e.currentTarget.getAttribute("itemID");
@@ -46,6 +47,21 @@ export default function Home() {
         }))
     }
 
+    // const toggle = document.querySelector(".theme-toggle");
+    //     toggle.addEventListener("click", () => {
+        
+    // });
+
+    function handleToggle() {
+        if (theme === "dark") {
+            setTheme("light");
+        }
+        else {
+            setTheme("dark");
+        }
+        document.body.classList.toggle("dark");
+    }
+
     return (
         <>
             <Head>
@@ -54,7 +70,17 @@ export default function Home() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main className="h-full flex p-24 text-white flex-col text-3xl align-middle text-center">
+            <main className="h-full flex p-24 text-black dark:bg-black dark:text-white flex-col text-3xl align-middle text-center">
+                <div className="absolute toggle cursor-pointer" onClick={handleToggle}>
+                    <Image
+                        src={theme === "dark" ? "/assets/svgs/light.svg" : "/assets/svgs/dark.svg"}
+                        alt="Vercel Logo"
+                        className={theme === "dark" ? "" : "invert"}
+                        width={theme === "dark" ? 30 : 26}
+                        height={theme === "dark" ? 30 : 26}
+                        priority
+                    />
+                </div>
                 <div className="flex flex-row-reverse">
                     <a
                         className="flex align-middle text-center"
@@ -65,9 +91,9 @@ export default function Home() {
                     <p className="text-base">By</p>
                     
                     <Image
-                        src="/vercel.svg"
+                        src="/assets/svgs/vercel.svg"
                         alt="Vercel Logo"
-                        className="invert"
+                        className={theme === "dark" ? "" : "invert"}
                         width={100}
                         height={24}
                         priority
