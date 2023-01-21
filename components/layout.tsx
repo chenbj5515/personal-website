@@ -3,7 +3,8 @@ import Head from "next/head";
 import Image from "next/image";
 
 export default function Layout({ children }: { children: any }) {
-  const [theme, setTheme] = React.useState("dark");
+  const [theme, setTheme] = React.useState("light");
+
   function handleToggle() {
     if (theme === "dark") {
       setTheme("light");
@@ -22,10 +23,10 @@ export default function Layout({ children }: { children: any }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="h-full flex p-24 text-black dark:bg-black dark:text-white flex-col text-3xl align-middle text-center">
+      <main className="h-full flex p-24 text-black dark:bg-dark dark:text-white flex-col text-3xl align-middle text-center">
         <div className="flex flex-row justify-between h-10">
-          <label className="text-base relative inline-block w-14 h-7">
-            <input className="peer opacity-0 w-0 h-0" type="checkbox" />
+          <label  className="text-base relative inline-block w-14 h-7">
+            <input onChange={handleToggle} checked={theme === "light"} className="peer opacity-0 w-0 h-0" type="checkbox" />
             <span className="transition duration-300 ease-in-out peer-checked:translate-x-5 peer-checked:shadow-full-moon left-2 top-1 rounded-full shadow-crescent absolute h-5 w-5 z-[1]"></span>
             <span className="peer-checked:bg-blue absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-black transition duration-500 rounded-3xl"></span>
           </label>
@@ -40,7 +41,7 @@ export default function Layout({ children }: { children: any }) {
             <Image
               src="/assets/svgs/vercel.svg"
               alt="Vercel Logo"
-              className={theme === "dark" ? "" : "invert"}
+              className={theme === "light" ? "" : "invert"}
               width={100}
               height={24}
               priority

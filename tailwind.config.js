@@ -8,17 +8,23 @@ module.exports = {
   theme: {
     colors: {
       theme: "#6a57fa",
-      black: "black",
+      black: "#1a1a1a",
+      dark: "#212121",
       blue: "#1e07f0",
       white: "white",
-      gray: "#4b5563",
+      gray: "rgb(120, 120, 120)",
       grey: "#9ca3af"
     },
     extend: {
       boxShadow: {
         'crescent': 'inset 8px -4px 0px 0px #fff000',
         'full-moon': 'inset 15px -4px 0px 15px #fff000',
-        'card': '0px 8px 16px 8px rgb(0 0 0 / 3%)'
+        'card': '0px 8px 16px 8px rgb(0 0 0 / 3%)',
+        'fancy': '0px 0px 30px 1px rgba(0, 255, 117, 0.30)',
+        'dark-shadow': 'rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;'
+      },
+      backgroundImage: {
+        'dark-border': 'linear-gradient(163deg, #00ff75 0%, #3700ff 100%)'
       }
     },
   },

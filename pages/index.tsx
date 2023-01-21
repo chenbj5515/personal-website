@@ -1,14 +1,7 @@
 import React from "react";
-import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "@next/font/google";
-// import { Tab } from '@headlessui/react';
 import { motion } from "framer-motion";
 const inter = Inter({ subsets: ["latin"] });
-
-function classNames(...classes: any[]) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function Home() {
   const sectionsRef = React.useRef<HTMLDivElement>(null);
