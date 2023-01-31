@@ -1,6 +1,7 @@
 import React from "react";
 import { Inter } from "@next/font/google";
 import { motion } from "framer-motion";
+import { ApolloClient, InMemoryCache } from "@apollo/client";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
   const [sections, setSections] = React.useState([
     {
       name: "plans",
-      x: 10
+      x: 10,
     },
     {
       name: "articles",
@@ -59,7 +60,7 @@ export default function Home() {
   }
 
   return (
-    <>
+    <div className="text-3xl">
       <div className="font-NewYork p-32 tracking-widest">
         Chen's personal website
       </div>
@@ -82,6 +83,6 @@ export default function Home() {
           </a>
         ))}
       </div>
-    </>
+    </div>
   );
 }

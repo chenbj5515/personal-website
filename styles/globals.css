@@ -1,10 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-html,
-body,
-#__next {
-  height: 100%;
+html, body, #__next {
+    min-height: 100vh;
+}
+
+.dark {
+    background: rgb(33 33 33);
+}
+
+h1 {
+    font-size: 2.25rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+p {
+    margin-bottom: 32px;
+    line-height: 1.9;
 }
 
 /* @font-face {
