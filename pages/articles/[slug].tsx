@@ -17,7 +17,7 @@ import path from "path";
 
 const Child = ({source, frontMatter}: any) => {
   return ( 
-    <div className="text-left max-w-2xl mx-auto	mt-16">
+    <div className="mt-6 px-5 text-left max-w-2xl mx-auto lg:mt-16">
       <div className="post-header">
         <h1>{frontMatter.title}</h1>
         {frontMatter.description && (

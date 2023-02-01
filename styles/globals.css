@@ -20,6 +20,24 @@ h2 {
     font-weight: bold;
 }
 
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 28px;
+        letter-spacing: 0;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 8px;
+        letter-spacing: 0;
+    }
+
+    p {
+        font-size: 17px;
+        margin-bottom: 24px;
+    }
+}
+
 p {
     margin-bottom: 32px;
     line-height: 1.9;

@@ -22,8 +22,8 @@ export default function Layout({ children }: { children: any }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="h-full min-h-full flex px-24 text-black dark:bg-dark dark:text-white flex-col align-middle text-center">
-        <header className="w-full flex-col z-10 bg-white dark:bg-dark opacity-90 justify-center sticky top-0 h-20 flex backdrop-opacity-10">
+      <main className="px-5 h-full min-h-full flex text-black dark:bg-dark dark:text-white flex-col align-middle text-center">
+        <header className="w-full flex-col z-10 bg-white dark:bg-dark opacity-90 justify-center sticky top-0 h-16 flex backdrop-opacity-10">
           <div className="w-full flex flex-row justify-between h-10">
             <label className="text-base relative inline-block w-14 h-7">
               <input
