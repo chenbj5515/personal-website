@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import React from "react";
 import matter from "gray-matter";
 import { serialize } from "next-mdx-remote/serialize";
@@ -15,18 +14,39 @@ import path from "path";
 //   }
 // `;
 
-const Child = ({source, frontMatter}: any) => {
-  return ( 
-    <div className="mt-6 px-5 text-left max-w-2xl mx-auto lg:mt-16">
+export default function({ source, frontMatter }: any) {
+
+  return (
+    <div className="mt-6 text-left max-w-2xl mx-auto lg:mt-12">
       <div className="post-header">
         <h1>{frontMatter.title}</h1>
         {frontMatter.description && (
           <p className="description">{frontMatter.description}</p>
         )}
       </div>
-      <main className="text-lg tracking-wider">
+      <main className="text-base tracking-wider mb-20">
         <MDXRemote {...source} />
+        <div className="description text-right">{frontMatter.date}</div>
       </main>
+      <footer>
+        <ul className="p-6 bg-dark text-white">
+          <li className="text-center text-xl lg:text-2xl my-6">
+            <div className="tracking-wide uppercase opacity-40 text-xs mb-2">Previous</div>
+            <a
+              href="https://lee.so/blog/2022-weibo-twitter-review"
+              title="2022 年微博 Twitter 文字回顾"
+            >
+              2022 年微博 Twitter 文字回顾
+            </a>
+          </li>
+          <li className="text-center text-xl lg:text-2xl my-6">
+            <div className="tracking-wide uppercase opacity-40 text-xs mb-2">Next</div>
+            <a href="https://lee.so/blog/travel-in-haifeng" title="海丰游记">
+              海丰游记
+            </a>
+          </li>
+        </ul>
+      </footer>
 
       <style jsx>{`
         .post-header h1 {
@@ -43,8 +63,6 @@ const Child = ({source, frontMatter}: any) => {
     </div>
   );
 };
-
-export default Child;
 
 export const getStaticProps = async ({ params }: { params: any }) => {
   const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`);

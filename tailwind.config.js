@@ -6,6 +6,24 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontSize: {
+      "xs": "12px",
+      "sm": "13px",
+      "base": "18px",
+      "lg": "20px",
+      "xl": "24px",
+      "2xl": "28px",
+      "32": "32px",
+      "3xl": "2rem;"
+    },
+    leading: {
+      "12": "48px",
+      "16": "64px"
+    },
+    letterSpacing: {
+      normal: "1px",
+      wide: "2px"
+    },
     colors: {
       theme: "#6a57fa",
       black: "#1a1a1a",
@@ -13,7 +31,7 @@ module.exports = {
       blue: "#1e07f0",
       white: "white",
       gray: "rgb(120, 120, 120)",
-      grey: "#9ca3af"
+      grey: "#9ca3af",
     },
     extend: {
       boxShadow: {

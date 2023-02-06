@@ -3,6 +3,7 @@
 @tailwind utilities;
 html, body, #__next {
     min-height: 100vh;
+    background: #fafafa;
 }
 
 .dark {
@@ -64,7 +65,6 @@ p {
     }
 
     .center {
-        width: 100%;
         position: absolute;
         left: 50%;
         top: 50%;
