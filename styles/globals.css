@@ -1,47 +1,64 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-html, body, #__next {
-    min-height: 100vh;
-    background: #fafafa;
+html,
+body,
+#__next {
+  min-height: 100vh;
+}
+
+body {
+  background: #f0f0f0;
+}
+
+.header-bg {
+  background: rgb(240, 240, 240, 0.8);
 }
 
 .dark {
-    background: rgb(33 33 33);
+  background: rgb(33 33 33);
+}
+
+.dark .header-bg {
+  background: rgb(33, 33, 33, 0.8);
+}
+
+.glass {
+  backdrop-filter: saturate(180%) blur(5px);
 }
 
 h1 {
-    font-size: 2.25rem;
-    font-weight: bold;
+  font-size: 2.25rem;
+  font-weight: bold;
 }
 
 h2 {
-    font-size: 1.75rem;
-    margin: 20px 0;
-    font-weight: bold;
+  font-size: 1.75rem;
+  margin: 20px 0;
+  font-weight: bold;
 }
 
 @media (max-width: 1024px) {
-    h1 {
-        font-size: 28px;
-        letter-spacing: 0;
-    }
+  h1 {
+    font-size: 28px;
+    letter-spacing: 0;
+  }
 
-    h2 {
-        font-size: 24px;
-        margin-bottom: 8px;
-        letter-spacing: 0;
-    }
+  h2 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    letter-spacing: 0;
+  }
 
-    p {
-        font-size: 17px;
-        margin-bottom: 24px;
-    }
+  p {
+    font-size: 17px;
+    margin-bottom: 24px;
+  }
 }
 
 p {
-    margin-bottom: 32px;
-    line-height: 1.9;
+  margin-bottom: 32px;
+  line-height: 1.9;
 }
 
 /* @font-face {
@@ -60,14 +77,14 @@ p {
 }
 
 @layer utilities {
-    .font-NewYork {
-        font-family: NewYork;
-    }
+  .font-NewYork {
+    font-family: NewYork;
+  }
 
-    .center {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
+  .center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }

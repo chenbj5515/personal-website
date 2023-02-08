@@ -1,9 +1,11 @@
 import React from "react";
 import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function Layout({ children }: { children: any }) {
   const [theme, setTheme] = React.useState("light");
+  const router = useRouter();
 
   function handleToggle() {
     if (theme === "dark") {
@@ -22,8 +24,60 @@ export default function Layout({ children }: { children: any }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="px-5 lg:px-10 h-[100vh] pb-10 min-h-full flex text-black dark:bg-dark dark:text-white flex-col align-middle text-center">
-        <header className="w-full h-16 z-10 justify-between dark:bg-dark items-center sticky top-0 flex backdrop-opacity-10">
+      <main className="px-5 lg:px-10 pb-10 min-h-full flex text-black dark:bg-dark dark:text-white flex-col align-middle text-center">
+        <header className="glass w-[100vw] px-10 header-bg -translate-x-10 h-16 z-10 justify-between items-center sticky top-0 flex backdrop-opacity-10">
+          {router.pathname === "/" ? (
+            <a
+              className="flex align-middle text-center w-20"
+              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/assets/svgs/vercel.svg"
+                alt="Vercel Logo"
+                className={theme === "light" ? "" : "invert"}
+                width={100}
+                height={24}
+                priority
+              />
+            </a>
+          ) : (
+            <a href="/" className="w-8 h-8">
+              <img
+                className="rounded-full"
+                src="https://avatars.githubusercontent.com/u/39869273?v=4"
+                alt="profile"
+              />
+            </a>
+          )}
+
+          <nav className="flex items-center tracking-normal">
+            <a
+              className="px-2 whitespace-nowrap hover:opacity-30 lg:px-7"
+              href="/music"
+            >
+              音乐
+            </a>
+            <a
+              className="px-2 whitespace-nowrap hover:opacity-30 lg:px-7"
+              href="/articles"
+            >
+              文章
+            </a>
+            <a
+              className="px-2 whitespace-nowrap hover:opacity-30 lg:px-7"
+              href="/thoughts"
+            >
+              随想
+            </a>
+            <a
+              className="px-2 whitespace-nowrap hover:opacity-30 lg:px-7"
+              href="/thoughts"
+            >
+              电影
+            </a>
+          </nav>
           <label className="text-base relative inline-block w-14 h-7">
             <input
               onChange={handleToggle}
@@ -34,35 +88,6 @@ export default function Layout({ children }: { children: any }) {
             <span className="transition duration-300 ease-in-out peer-checked:translate-x-5 peer-checked:shadow-full-moon left-2 top-1 rounded-full shadow-crescent absolute h-5 w-5 z-[1]"></span>
             <span className="peer-checked:bg-blue absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-black transition duration-500 rounded-3xl"></span>
           </label>
-          <nav className="flex center absolute items-center tracking-normal">
-            <a className="px-3 hover:opacity-30 lg:px-7" href="/music">
-              音乐
-            </a>
-            <a className="px-3 hover:opacity-30 lg:px-7" href="/articles">
-              文章
-            </a>
-            <a className="px-3 hover:opacity-30 lg:px-7" href="/thoughts">
-              随想
-            </a>
-            <a className="px-3 hover:opacity-30 lg:px-7" href="/thoughts">
-              电影
-            </a>
-          </nav>
-          <a
-            className="flex align-middle text-center w-20"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/assets/svgs/vercel.svg"
-              alt="Vercel Logo"
-              className={theme === "light" ? "" : "invert"}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
         </header>
 
         {children}
