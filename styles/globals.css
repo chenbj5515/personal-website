@@ -81,6 +81,10 @@ p {
     font-family: NewYork;
   }
 
+  .font-newspaper {
+    font-family: nyt-cheltenham,georgia,'times new roman',times,serif;
+  }
+
   .center {
     position: absolute;
     left: 50%;
