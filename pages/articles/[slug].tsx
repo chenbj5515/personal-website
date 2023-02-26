@@ -17,7 +17,7 @@ import path from "path";
 export default function({ source, frontMatter }: any) {
 
   return (
-    <div className="mt-6 text-left max-w-2xl mx-auto lg:mt-12">
+    <div className="w-full mt-6 text-left max-w-2xl mx-auto lg:mt-12">
       <div className="post-header">
         <h1>{frontMatter.title}</h1>
         {frontMatter.description && (

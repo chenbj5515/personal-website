@@ -1,12 +1,36 @@
 ---
 title: 这个博客是如何搭建的？
-description: NextJS/Docker/Postgres/TailwindCSS/HeadlessUI
-date: Feb 2, 2023
+description: NextJS/Docker/Postgres/
+date: Feb 26, 2023
 ---
-主要用到的技术是：NextJS/Docker/Postgres/TailwindCSS/HeadlessUI
 
-## UI
-先说下设计方面，HeadlessUI是一个高度自定义样式解决方案。
-它帮助你解决的是更加公共的JS逻辑，而不是样式。
+## 组件库
+开发Tab这样明显可以抽象为组件的功能的时候，我是用的HeadlessUI，它是一个高度自定义样式解决方案，它帮助你解决的是更加公共的JS逻辑，而不是样式。
 比如Tab组件需要知道用户选择了哪个Tab的状态。并且根据当前所选的来切换下面Panel中展示的文章列表。
 HeadlessUI会为你提供这些组件最基本能力的抽象，而不会提供默认的样式。所以让高度自定义的UI成为可能。
+
+## 暗色模式
+先说下这个动画效果，我在这个[网站](https://uiverse.io/all)上找到的这个令我满意的效果。
+我非常喜欢这个网站，上面有很多不错开源的动画效果可以直接拿来使用。
+至于技术上的实现非常简单，只需要给body增删一个dark类就可以了：
+`
+document.body.classList.toggle("dark");
+`
+然后，我们在写元素的样式的时候，如果是需要暗色模式下不一样，那么写TailwindCSS的时候只需要加个"dark:"前缀就好了。
+
+## header设计
+header是用sticky定位，这个定位的效果就是在普通的情况下会占据一块空间，下面的元素会从header空间下开始。
+而一旦header所在区域将要滚动出viewport，sticky定位就会让它固定于原来的位置而不是滚出可见区域。
+另外就是采用了我很喜欢的磨砂玻璃效果，实现这个效果只需要一行CSS：
+`
+backdrop-filter: saturate(180%) blur(5px);
+`
+## 主页设计
+主页的设计元素参考了一点[Bento](https://bento.me/aboutus)，主要是左边的肖像处和右边可以直接播放的视频。
+不过Bento右边展示的地方是一个一个的矩形，太死板了，所以我从网上找了一下AI生产的网页设计，得到了这个比较满意的层级堆叠的效果。
+
+## 文章页设计
+这里不得不感谢[@南小北](https://twitter.com/nanxiaobei)的[lee.so](https://lee.so/)，他的博客网站设计简洁而令人愉悦，是我目前见过设计得最好的博客网站。
+另外他这个人也满有意思的，通过他我学到了不少东西。
+我的博客文章页，从字号，行高，间距等基本是从他的网站复刻的，效果比我看过的所有其他博客都要舒服。
+

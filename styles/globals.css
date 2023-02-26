@@ -27,6 +27,17 @@ body {
   backdrop-filter: saturate(180%) blur(5px);
 }
 
+.link::after {
+  display: inline-block;
+  margin-left: 2px;
+  font-family: system-ui;
+  font-weight: 700;
+  content: "↗";
+  transform: scale(0.7) translate(-3px, 4px);
+  transform-origin: right top;
+}
+
+
 h1 {
   font-size: 2.25rem;
   font-weight: bold;
@@ -82,7 +93,7 @@ p {
   }
 
   .font-newspaper {
-    font-family: nyt-cheltenham,georgia,'times new roman',times,serif;
+    font-family: nyt-cheltenham, georgia, "times new roman", times, serif;
   }
 
   .center {

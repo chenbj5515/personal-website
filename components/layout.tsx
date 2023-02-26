@@ -2,12 +2,21 @@ import React from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { toogle } from 'store/theme-slice'
+import { useSelector, useDispatch } from 'react-redux';
+// import store from "store";
+// import { Provider } from "react-redux";
 
 export default function Layout({ children }: { children: any }) {
   const [theme, setTheme] = React.useState("light");
   const router = useRouter();
+  // const theme = useSelector((state: any) => state.theme.value)
+  console.log(theme, "theme")
+  const dispatch = useDispatch()
 
   function handleToggle() {
+    console.log("change")
+    // dispatch(toogle())
     if (theme === "dark") {
       setTheme("light");
     } else {
@@ -25,7 +34,7 @@ export default function Layout({ children }: { children: any }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="px-5 lg:px-10 pb-10 min-h-full flex text-black dark:bg-dark dark:text-white flex-col align-middle text-center">
-        <header className="glass w-[100vw] px-10 header-bg -translate-x-10 h-16 z-10 justify-between items-center sticky top-0 flex backdrop-opacity-10">
+        <header className="glass w-[100vw] px-5 -translate-x-5 lg:px-10 lg:-translate-x-10 h-16 z-10 justify-between items-center sticky top-0 flex">
           {router.pathname === "/" ? (
             <a
               className="flex align-middle text-center w-20"
@@ -43,7 +52,7 @@ export default function Layout({ children }: { children: any }) {
               />
             </a>
           ) : (
-            <a href="/" className="w-8 h-8">
+            <a onClick={() => {router.push("/")}} className="w-8 h-8">
               <img
                 className="rounded-full"
                 src="https://avatars.githubusercontent.com/u/39869273?v=4"
@@ -54,26 +63,27 @@ export default function Layout({ children }: { children: any }) {
 
           <nav className="flex items-center tracking-normal">
             <a
-              className="px-2 whitespace-nowrap hover:opacity-30 lg:px-7"
-              href="/music"
+              className="px-2 whitespace-nowrap cursor-pointer hover:opacity-30 lg:px-7"
+              onClick={() => {router.push("/musics")}}
             >
               音乐
             </a>
             <a
-              className="px-2 whitespace-nowrap hover:opacity-30 lg:px-7"
-              href="/articles"
+              className="px-2 whitespace-nowrap cursor-pointer hover:opacity-30 lg:px-7"
+              onClick={() => {router.push("/articles")}}
             >
               文章
             </a>
             <a
-              className="px-2 whitespace-nowrap hover:opacity-30 lg:px-7"
-              href="/thoughts"
+              className="px-2 whitespace-nowrap cursor-pointer hover:opacity-30 lg:px-7"
+              onClick={() => {router.push("/thoughts")}}
+
             >
               随想
             </a>
             <a
-              className="px-2 whitespace-nowrap hover:opacity-30 lg:px-7"
-              href="/thoughts"
+              className="px-2 whitespace-nowrap cursor-pointer hover:opacity-30 lg:px-7"
+              onClick={() => {router.push("/thoughts")}}
             >
               电影
             </a>
